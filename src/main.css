@@ -1,0 +1,137 @@
+@import './css/normalize.css';
+@import './css/jstyles.css';
+
+:root {
+  /* dims */
+  --min-desktop: 1170px;
+
+  /* colours */
+  --clr-bg: #f9f4f0;
+  --clr-bg2: #1f0504;
+  --clr-1: #301b18;
+  --clr-2: #ad1114;
+  --clr-3: #fff;
+  --clr-4: #1f0504;
+
+  /* misc */
+  --borderR: 3px;
+}
+
+:global html {
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+
+  & body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 16px;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: var(--clr-1);
+
+    & .container {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* header & nav */
+    & header, & section {
+      width: 100%;
+      max-width: var(--min-desktop);
+      margin: 0 auto;
+      padding: 0 15px;
+      &::before {
+        display: table;
+        content: ' ';
+      }
+    }
+
+    & .top {
+      display: flex;
+      flex: 0 0 auto;
+      height: 5rem;
+      border-bottom: 1px solid var(--clr-3);
+
+      & header {
+        display: flex;
+        flex-direction: row;
+        color: var(--clr-3);
+
+        & h1 {
+          margin: auto 0;
+          font-size: 1rem;
+        }
+
+        & nav {
+          margin: auto 0 auto auto;
+          & a {
+            transition: all 0.5s;
+            text-decoration: none;
+            color: var(--clr-1);
+            padding: 10px;
+            border: 1px solid transparent;
+            border-radius: var(--borderR);
+            font-size: 0.8rem;
+            font-weight: medium;
+            &[aria-selected="true"] {
+              border-color: var(--clr-3);
+              color: var(--clr-3);
+            }
+          }
+
+
+        }
+      }
+    }
+
+
+    & .main {
+      display: flex;
+      flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+
+      & .emph, & .emph:visited {
+        color: var(--clr-2);
+        text-decoration: none;
+        font-weight: bold;
+      }
+
+      & h2 {
+        margin: 0;
+        border-bottom: 1px solid var(--clr-1);
+      }
+
+      /* sections */
+      & .book {
+        display: flex;
+        padding: 30px 0;
+        & img {
+          flex: 0 0 auto;
+        }
+
+        & .links {
+          padding-left: 0;
+
+          & li {
+            list-style: none;
+            display: inline;
+
+            & a {
+              text-decoration: none;
+              display: inline-block;
+              color: var(--clr-3);
+              padding: 10px;
+              background: var(--clr-bg2);
+              /* border: 1px solid var(--clr-3); */
+              border-radius: var(--borderR);
+            }
+          }
+        }
+      }
+    }
+  }
+}
